@@ -1,0 +1,39 @@
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script>
+    $( document ).ready(function() {
+        
+        // Set URL path variable to Google Geocode API
+        var googleapis_geocode_url_json = "https://maps.googleapis.com/maps/api/geocode/json?address=";
+        var address = "";
+
+  		// Click geocode button
+        $( "#geocode_button" ).click(function() {
+  			//alert( "Handler for .click() called." );
+  			var address_to_geocode = $( "#geocode_address" ).val();
+  			//alert(address_to_geocode);
+  			var encoded = encodeURIComponent(address_to_geocode);
+  			address = googleapis_geocode_url_json + encoded ;
+
+  			var json_request = $.getJSON( address, function(json) {
+
+        var formatted_address = json.results[0].formatted_address;
+        var coordinates = [json.results[0].geometry.location.lat, json.results[0].geometry.location.lng];
+ 				alert(coordinates + " " + formatted_address);
+			})
+
+		});
+
+    });
+    </script>
+</head>
+<body>
+	<div>
+		<form action"https://maps.googleapis.com/maps/api/geocode/json?">
+		<input type="text" name="geocode_address" id="geocode_address">Enter location here </input>
+		<button type="button" name="geocode_button" id="geocode_button">Geocode Address </button>
+		</form>
+	</div>
+</body>
+</html>
