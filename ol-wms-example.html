@@ -24,8 +24,8 @@
           new ol.layer.Tile({
               title: "Global Imagery",
               source: new ol.source.TileWMS({
-              url: 'http://climate.nkn.uidaho.edu/arcgis/services/Precip/MapServer/WMSServer',
-              params: {LAYERS: '0', VERSION: '1.1.1'}
+              url: 'http://thredds.nkn.uidaho.edu:8080/thredds/wms/NWCSC_INTEGRATED_SCENARIOS_ALL_CLIMATE/projections/macav2metdata/macav2metdata_rsds_DJF_20402069_rcp45_vs_19712000_20CMIP5ModelMean.nc',
+              params: {LAYERS: 'surface_downwelling_shortwave_flux_in_air', VERSION: '1.1.1'}
               })
           })
         ],
