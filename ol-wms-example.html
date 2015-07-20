@@ -12,7 +12,7 @@
     <title>OpenLayers 3 WMS Layer Example</title>
   </head>
   <body>
-    <h2>Precipitation WMS Layer</h2>
+    <h2>Surface Downwelling Shortwave Flux in Air WMS Layer</h2>
     <div id="map" class="map"></div>
     <script type="text/javascript">
       var map = new ol.Map({
@@ -25,7 +25,16 @@
               title: "Global Imagery",
               source: new ol.source.TileWMS({
               url: 'http://thredds.nkn.uidaho.edu:8080/thredds/wms/NWCSC_INTEGRATED_SCENARIOS_ALL_CLIMATE/projections/macav2metdata/macav2metdata_rsds_DJF_20402069_rcp45_vs_19712000_20CMIP5ModelMean.nc',
-              params: {LAYERS: 'surface_downwelling_shortwave_flux_in_air', VERSION: '1.1.1'}
+              params: {
+                        LAYERS: 'surface_downwelling_shortwave_flux_in_air',
+                        VERSION: '1.3.0',
+                        NUMCOLORBANDS:'20',
+                        COLORSCALERANGE:'-12.5,12.5',
+                        STYLES:'boxfill/rainbow',
+                        OPACITY:'80',
+                        WIDTH:'256',
+                        HEIGHT:'256'
+                      }
               })
           })
         ],
